@@ -1,0 +1,42 @@
+
+.banner{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: linear-gradient(to top,rgba(0, 0, 0, 0.424) 0%, rgba(0, 0, 0, 0.666) 100%), url(https://images.pexels.com/photos/22119687/pexels-photo-22119687.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    width: 100%;
+    margin: 0 auto;
+/* -------------------------------------------------------------------------------------------------------- */
+}
+.banner__content{
+    font-size: 2rem;
+    align-content: center;
+    padding: 10px;
+}
+.banner__title{
+    color: white;
+}
+.banner__title span{
+    color: #932E2E;
+}
+.banner__subtitle{
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media(max-width: 600px){
+    .banner{max-width: 600px;
+        height: 18vh;
+        margin: 0 auto;}
+
+    .banner__content{
+        font-size: 1.2rem;
+    }
+    .banner__subtitle{
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block conteudo %}
+<!-- Banner -->
+<section class="banner">
+    <div class="banner__content">
+        <h1 class="banner__title">
+            Code & <span class="banner__title--highlight">Flavor</span>
+        </h1>
+        <p class="banner__subtitle">
+            O melhor hambúrguer da cidade compilado para você.
+        </p>
+    </div>
+</section>
+
+<section class="categories">
+    <div class="categories__container">
+        <h2 class="categories__title">ESCOLHA RÁPIDA</h2>
+
+        <div class="categories__list">
+            {% for produto in produtos %}
+            <div class="category-item">
+                <img src="{{ produto.imagem }}"
+                    alt="{{ produto.nome_produto }}" class="category-item__img" />
+                <a href="#menu" class="button button--small">EU QUERO</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="products" id="menu">
+    <div class="products__container">
+        <h2 class="products__title">NOSSOS DESTAQUES</h2>
+
+        <div class="products__grid">
+            {% for produto in produtos: %}
+            <article class="card" id="lanche-1">
+                <div class="card__image-wrapper">
+                    <img src="{{ produto.imagem }}" alt="{{ produto.nome_produto }}" class="card__image" />
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">{{ produto.nome_produto }}</h3>
+                    <p class="card__description">
+                        {{ produto.descricao }}
+                    </p>
+                    <div class="card__footer">
+                        <span class="card__price">{{ produto.preco }}</span>
+                        <a href="/hamburguer"><button class="button button--small">DETALHES</button></a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div>
+            <a href="#menu" class="button button--primary">VOLTAR PARA DESTAQUES</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

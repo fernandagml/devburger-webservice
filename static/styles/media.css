@@ -1,0 +1,12 @@
+@media(max-width: 600px){
+    .header{
+        display: flex;
+        position: static;
+
+    }
+
+    .header__container, .header__menu{
+        flex-wrap: wrap;
+    
+    }
+}

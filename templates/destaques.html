@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block css_adicional %}
+<link rel="stylesheet" href="../static/styles/destaques.css">
+{% endblock %}
+{% block conteudo %}
+<div class="product-page">
+    {% for produto in produtos: %}
+    <div class="info-section">
+        <a href="/" class="back-link">← Voltar para o menu</a>
+        
+        <div class="header-content">
+            <h1 class="title">{{ produto.nome_produto }}</h1>
+            <p class="price">R$ {{ produto.preco }}</p>
+        </div>
+
+        <p class="description">{{ produto.descricao }}</p>
+
+        <div class="customization">
+            <h3>Personalize seu lanche</h3>
+            <div class="option-group">
+                <label class="option-item">
+                    <input type="checkbox"> Extra Bacon (+ R$ 4,00)
+                </label>
+                <label class="option-item">
+                    <input type="checkbox"> Cebola Caramelizada (+ R$ 2,00)
+                </label>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <div class="counter">
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+            </div>
+            <button class="buy-button">ADICIONAR AO PEDIDO</button>
+        </div>
+    </div>
+    <div class="image-section">
+        <img src="{{ produto.imagem }}" alt="{{ produto.nome_produto }}">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
