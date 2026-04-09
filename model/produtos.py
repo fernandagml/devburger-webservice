@@ -20,7 +20,7 @@ def recuperar_produto_id(id):
 def recuperar_produto_destaque():
 
     conexao, cursor = conectar()
-    cursor.execute("SELECT id_produto, imagem, destaque, estoque FROM tb_produto WHERE destaque = 1;")
+    cursor.execute("SELECT id_produto, nome_produto, preco, descricao, imagem, destaque, estoque FROM tb_produto WHERE destaque = 1;")
     destaque = cursor.fetchall()
     conexao.close()
     return destaque

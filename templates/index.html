@@ -17,7 +17,7 @@
         <h2 class="categories__title">ESCOLHA RÁPIDA</h2>
 
         <div class="categories__list">
-            {% for produto in destaques %}
+            {% for produto in produtos %}
             <div class="category-item">
                 <img src="{{ produto.imagem }}"
                     alt="{{ produto.nome_produto }}" class="category-item__img" />
@@ -33,7 +33,7 @@
         <h2 class="products__title">NOSSOS DESTAQUES</h2>
 
         <div class="products__grid">
-            {% for produto in produtos: %}
+            {% for produto in destaques %}
             <article class="card" id="lanche-1">
                 <div class="card__image-wrapper">
                     <img src="{{ produto.imagem }}" alt="{{ produto.nome_produto }}" class="card__image" />
