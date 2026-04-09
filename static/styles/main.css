@@ -58,12 +58,6 @@ body{
     box-shadow: 0 5px 5px rgba(0,0,0,0.3);
 }
 
-.categories{
-    min-height: 30vh;
-    width: 100%;
-    
-}
-
 .categories__container{
     background-color: rgba(255, 192, 83, 0.8);
     display: flex;
@@ -85,29 +79,27 @@ body{
 
 .categories__list{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    max-width: 1400px;
-    
+    width: 100%;
+    max-width: 1800px;
+    justify-content: center;
 }
 
 .categories__list > div{
-    flex: 1 1 200px;
+    flex: 0 1 200px;
     margin: 10px;
 } 
 
 .category-item{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     min-height: 100px;
-    width: 120px;
     border-radius: 10px;
     justify-content: center;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
-
 }
 
 .category-item img{

@@ -1,10 +1,10 @@
-{% extends "layout.html" %}
+{% extends "header.html" %}
 {% block css_adicional %}
-<link rel="stylesheet" href="../static/styles/destaques.css">
+<link rel="stylesheet" href="../static/styles/produto.css">
 {% endblock %}
 {% block conteudo %}
 <div class="product-page">
-    {% for produto in produtos: %}
+    {% if produto %}
     <div class="info-section">
         <a href="/" class="back-link">← Voltar para o menu</a>
         
@@ -39,6 +39,6 @@
     <div class="image-section">
         <img src="{{ produto.imagem }}" alt="{{ produto.nome_produto }}">
     </div>
-    {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
