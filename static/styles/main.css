@@ -7,7 +7,7 @@ body{
 }
 
 .products{
-    background-color: rgba(206, 139, 68, 0.85);
+    background-color: rgba(202, 141, 76, 0.85);
     padding: 20px 20px 40px 20px;
     width: 100%;
 }
@@ -74,7 +74,7 @@ body{
     border-bottom: 1px solid rgba(147, 46, 46, 1);
     justify-content: center;
     display: flex;
-    margin: 20px;   
+    margin: 20px;
 }
 
 .categories__list{
@@ -134,7 +134,6 @@ body{
     justify-content: center;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
-    font-family: "sans-serif";
     transition: transform 0.3s ease;
 }
 
