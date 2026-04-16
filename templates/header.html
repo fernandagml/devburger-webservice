@@ -29,7 +29,9 @@
     <header class="header">
         <div class="header__container">
             <a href="/" class="header__logo">DevBurger</a>
-
+            {% if session.get('usuario_logado') %}
+            <span class="user">Olá {{ session.usuario_logado['usuario'] }}!!</span>
+            {% endif %}
             <nav class="header__nav">
                 <ul class="header__menu">
                     <li class="header__item">
@@ -46,6 +48,9 @@
                     </li>
                     <li class="header__item">
                         <a href="/login" class="header__link">Login</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="/lougout" class="header__link">Logout</a>
                     </li>
                 </ul>
             </nav>
