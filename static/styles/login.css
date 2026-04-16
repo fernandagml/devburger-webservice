@@ -1,0 +1,96 @@
+header {
+    top: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 192, 83, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    background-color: rgba(255, 192, 83, 0.8);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3)
+}
+
+h1 {
+    color: rgba(147, 46, 46, 1);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(147, 46, 46, 1);
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: "Oswald";
+}
+
+/* Estilização dos Campos */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: rgb(57, 81, 29);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(147, 46, 46, 1);
+    border-radius: 4px;
+    background-color: rgba(247, 247, 247, 0.8);
+    box-sizing: border-box;
+    /* Garante que o padding não quebre a largura */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255, 192, 83, 0.8);
+    border: 2px solid #4b2c20;
+    color: #4b2c20;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 4px 4px 0px #4b2c20;
+    margin-top: 1rem;
+    font-family: "Oswald";
+    font-size: 1.2rem;
+}
+
+button:hover {
+    background-color: rgba(147, 46, 46, 1);
+    color: rgba(255, 192, 83, 0.8);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #4b2c20;
+    border: 2px solid rgba(147, 46, 46, 1);
+}
+
+.footer-link {
+    margin-top: 2rem;
+    display: block;
+    color: rgba(147, 46, 46, 1);
+    text-decoration: none;
+    font-size: 1.1rem;
+}

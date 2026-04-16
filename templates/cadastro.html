@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+{% block css_adicional %}
+<link rel="stylesheet" href="../static/styles/login.css">
+{% endblock %}
+{% block conteudo %}
+<main class="auth-container">
+    <h1>CADASTRO</h1>
+
+    <form action="/cadastro/post" method="POST">
+        <div class="form-group">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <a href="/login" class="footer-link">Já tem uma conta? Faça login.</a>
+</main>
+{% endblock %}

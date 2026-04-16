@@ -10,3 +10,9 @@ CREATE TABLE IF NOT EXISTS tb_produto (
     destaque BOOL,
     estoque BOOL
 );
+
+CREATE TABLE IF NOT EXISTS tb_usuario (
+	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    usuario VARCHAR(80),
+    senha VARCHAR(200)
+);
