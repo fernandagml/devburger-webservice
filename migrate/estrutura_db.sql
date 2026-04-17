@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS tb_produto (
 );
 
 CREATE TABLE IF NOT EXISTS tb_usuario (
-	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    usuario VARCHAR(80),
-    senha VARCHAR(200)
+    usuario VARCHAR(80) PRIMARY KEY,
+    senha VARCHAR(200) NOT NULL
 );

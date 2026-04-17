@@ -1,6 +1,7 @@
 from flask import Flask, render_template as rt, request, redirect, session, flash
 from model.produtos import recuperar_produtos as rp, recuperar_produto_id as rpid, recuperar_produto_destaque as rpd
 from model.usuario import inserir_usuario as iu, verificar_login as vl
+from model.usuario import Usuario
 
 app = Flask(__name__)
 app.secret_key = "webservice_lanches"
@@ -24,8 +25,8 @@ def cadastro():
 def cadastrar():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
-    cadastro = iu(usuario, senha)
-    if cadastro:
+    cadastro = Usuario(usuario, senha)
+    if cadastro.cadastrar():
         return rt("login.html")
     else:
         flash("Este usuário já existe!", "erro")

@@ -1,7 +1,7 @@
 :root {
     --primary: rgba(206, 139, 68, 0.85); /* Marrom dourado */
     --text-main: rgb(54, 79, 25); /* Verde escuro do seu título */
-    --bg-card:  rgb(236, 229, 229); 
+    --bg-card:  rgba(247, 247, 247, 0.8); 
 }
 
 body {

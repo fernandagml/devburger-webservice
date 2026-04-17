@@ -66,4 +66,5 @@
 
 .user{
     color: white;
+    user-select: none;
 }

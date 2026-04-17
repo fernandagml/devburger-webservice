@@ -11,4 +11,5 @@
 
 .footer__text{
     color: rgb(236, 229, 229);
+    user-select: none;
 }
