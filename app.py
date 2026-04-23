@@ -1,6 +1,6 @@
 from flask import Flask, render_template as rt, request, redirect, session, flash
 from model.produtos import recuperar_produtos as rp, recuperar_produto_id as rpid, recuperar_produto_destaque as rpd
-from model.usuario import inserir_usuario as iu, verificar_login as vl
+# from model.usuario import inserir_usuario as iu, verificar_login as vl
 from model.usuario import Usuario
 
 app = Flask(__name__)
@@ -42,7 +42,7 @@ def login():
 def logar():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
-    user = vl(usuario, senha)
+    user = Usuario.verificar_login(usuario, senha)
     if user:
         session["usuario_logado"] = user
         return redirect("/")

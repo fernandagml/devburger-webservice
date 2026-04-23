@@ -1,5 +1,36 @@
 from database.conexao import conectar
 
+# Criação com classe:
+class Usuario:
+    def __init__(self, usuario:str, senha:str):
+        self.usuario = usuario
+        self.senha = senha
+    
+    def cadastrar(self):
+        """Função que cadastra o usuário"""
+
+        try:
+            conexao, cursor = conectar()
+            cursor.execute("INSERT INTO tb_usuario (usuario, senha) VALUES (%s, %s);", (self.usuario, self.senha))
+            conexao.commit()
+            conexao.close()
+            return True
+    
+        except Exception as erro:
+            print(erro)
+            return False
+    
+    @staticmethod
+    def verificar_login(usuario:str, senha:str) -> dict:
+        """Função que verifica se o usuário está cadastrado"""
+
+        conexao, cursor = conectar()
+        cursor.execute("SELECT usuario, senha FROM tb_usuario WHERE usuario = %s AND senha = %s;", (usuario, senha))
+        user = cursor.fetchone()
+        conexao.close()
+        return user
+
+
 # Criação com função:
 # def inserir_usuario(usuario, senha):
 #     """Função que cadastra o usuário"""
@@ -18,21 +49,8 @@ from database.conexao import conectar
 # def verificar_login(usuario, senha):
 #     """Função que verifica se o usuário está cadastrado"""
 
-
-# Criação com classe:
-class Usuario:
-    def __init__(self, usuario:str, senha:str):
-        self.usuario = usuario
-        self.senha = senha
-    
-    def cadastrar(self):
-        try:
-            conexao, cursor = conectar()
-            cursor.execute("INSERT INTO tb_usuario (usuario, senha) VALUES (%s, %s);", (self.usuario, self.senha))
-            conexao.commit()
-            conexao.close()
-            return True
-    
-        except Exception as erro:
-            print(erro)
-            return False
+#     conexao, cursor = conectar()
+#     cursor.execute("SELECT usuario, senha FROM tb_usuario WHERE usuario = %s AND senha = %s;", (usuario, senha))
+#     user = cursor.fetchone()
+#     conexao.close()
+#     return user
