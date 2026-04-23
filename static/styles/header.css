@@ -47,11 +47,11 @@
     text-decoration: none;
     color: white;
     padding: 1px 5px;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .header__link:hover{
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 .header__icon{
@@ -61,7 +61,11 @@
 
 .header__social{
     display: flex;
-    gap: 10px;
+    gap: 15px;
+}
+
+.header__social span:hover{
+    text-shadow: 1px 1px 0 white;
 }
 
 .user{

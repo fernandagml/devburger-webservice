@@ -1,0 +1,98 @@
+/* No seu arquivo de estilo principal (ex: style.css) */
+
+.sidebar-carrinho {
+    position: fixed;        /* Trava na tela */
+    top: 0;
+    right: 0;               /* Mantém fixo na direita */
+    width: 350px;           /* Largura da barra */
+    height: 100vh;          /* Altura total da tela */
+    background-color: rgba(255, 192, 83, 0.8); /* Seu Amarelo Mostarda */
+    border-left: 3px solid rgba(147, 46, 46, 1); /* Seu Marrom escuro */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+    z-index: 1000;          /* Garante que fique acima de outros elementos */
+    display: flex;
+    flex-direction: column; /* Organiza header, conteúdo e footer em coluna */
+    font-family: sans-serif; /* Substitua pela sua fonte */
+    color: #4b2c20;         /* Cor do texto (Marrom escuro) */
+}
+
+/* Header do Carrinho */
+.carrinho-header {
+    padding: 1rem 1.5rem;
+    background-color: #722620; /* Fundo Marrom */
+    color: rgba(255, 192, 83, 0.8);            /* Texto Amarelo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrinho-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.fechar-carrinho {
+    background: none;
+    border: none;
+    color: rgba(255, 192, 83, 0.8);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Conteúdo Dinâmico (Rolagem) */
+.carrinho-conteudo {
+    flex-grow: 1;           /* Ocupa o espaço central */
+    padding: 1.5rem;
+    overflow-y: auto;       /* Adiciona rolagem se tiver muitos itens */
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(114, 38, 32, 0.3); /* Linha divisória suave */
+}
+
+.item-nome { font-weight: bold; }
+.item-quantidade { color: rgba(75, 44, 32, 0.7); }
+
+/* Footer do Carrinho (Sempre visível) */
+.carrinho-footer {
+    padding: 1.5rem;
+    background-color: #fce9bf; /* Um amarelo mais claro para destacar */
+    border-top: 2px solid rgba(147, 46, 46, 1);
+}
+
+.total-carrinho {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: rgba(147, 46, 46, 1);
+}
+
+/* Botão de Finalizar (Similar ao 'EU QUERO') */
+.btn-finalizar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #f1c360; /* Amarelo Mostarda */
+    border: 2px solid #4b2c20; /* Borda Marrom */
+    color: #4b2c20;            /* Texto Marrom */
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px #4b2c20; /* Sombra sólida */
+    transition: all 0.2s ease;
+}
+
+.btn-finalizar:hover {
+    background-color: #4b2c20;
+    color: #f1c360;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #4b2c20;
+}

@@ -36,6 +36,12 @@
     border-top: 1px solid  rgba(89, 61, 43, 0.6);
 }
 
+.card__footer-buttons{
+    display: flex;
+    flex-direction: row;
+
+}
+
 .card .button{
     padding: 5px;
     border: 1px solid rgb(206, 139, 68);

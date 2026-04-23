@@ -20,56 +20,82 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/cards.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/footer.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/media.css') }}">
-    {% block css_adicional %}
-    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/carrinho.css') }}">
+    {% block css_adicional %}{% endblock %}
+
+    <script src="../static/js/carrinho.js" defer></script>
 </head>
 
-
 <body>
+    <input type="checkbox" id="carrinho-toggle" class="carrinho-checkbox">
+    <label for="carrinho-toggle" class="carrinho-overlay"></label>
+
+    <aside class="sidebar-carrinho">
+        <div class="carrinho-header">
+            <h1>Seu Pedido</h1>
+            <label for="carrinho-toggle" class="fechar-carrinho">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+
+        <div class="carrinho-conteudo" id="carrinho">
+            <div class="item-carrinho">
+                <div class="container-img">
+                    <img src="" alt="" class="item-imagem">
+                </div>
+                <div class="item-info">
+                    <span class="item-nome"></span>
+                    <span class="item-preco"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="carrinho-footer">
+            <div class="total-carrinho">
+                <span>Total:</span>
+                <span class="preco-total">R$ 58,00</span>
+            </div>
+            <a href="/checkout" class="btn-finalizar">Finalizar Pedido</a>
+        </div>
+    </aside>
+
     <header class="header">
         <div class="header__container">
             <a href="/" class="header__logo">DevBurger</a>
+
             {% if session.get('usuario_logado') %}
             <span class="user">Olá {{ session.usuario_logado['usuario'] }}!! 💬</span>
             {% endif %}
+
             <nav class="header__nav">
                 <ul class="header__menu">
-                    <li class="header__item">
-                        <a href="/" class="header__link">Home</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="/#menu" class="header__link">Cardápio</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="/#footer" class="header__link">Sobre</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="/#footer" class="header__link">Contato</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="/login" class="header__link">Login</a>
-                    </li>
-                    {% if session.get('usuario_logado') %}
-                    <li class="header__item">
-                        <a href="/lougout" class="header__link">Logout</a>
-                    </li>
-                    {% endif %}
+                    <li class="header__item"><a href="/" class="header__link">Home</a></li>
+                    <li class="header__item"><a href="/#menu" class="header__link">Cardápio</a></li>
+                    <li class="header__item"><a href="/#footer" class="header__link">Sobre</a></li>
+                    <li class="header__item"><a href="/#footer" class="header__link">Contato</a></li>
                 </ul>
             </nav>
 
             <div class="header__social">
                 <a href="/" class="header__icon"><span class="material-symbols-outlined">thumb_up</span></a>
-                <a href="/" class="header__icon"><span class="material-symbols-outlined">photo_camera</span></a>
+                {% if not session.get('usuario_logado') %}
+                <a href="/login"><span class="material-symbols-outlined header__icon">shopping_cart</span></a>
+                <a href="/login" class="header__icon"><span class="material-symbols-outlined">login</span></a></li>
+                {% else %}
+                <label for="carrinho-toggle" class="header__icon" style="cursor: pointer;">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </label>
+                <a href="/lougout" class="header__icon"><span class="material-symbols-outlined">logout</span></a></li>
+                {% endif %}
             </div>
         </div>
     </header>
 
     {% block conteudo %} {% endblock %}
 
-    <!-- Rodapé -->
     <footer class="footer" id="footer">
         <p class="footer__text">
-            DevBurger © 2025. Todos os direitos reservados.
+            DevBurger © 2026. Todos os direitos reservados.
         </p>
     </footer>
 </body>

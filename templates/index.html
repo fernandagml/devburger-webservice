@@ -45,7 +45,9 @@
                     </p>
                     <div class="card__footer">
                         <span class="card__price">R$ {{ produto.preco }}</span>
-                        <a href="/produto/{{produto.id_produto}}"><button class="button button--small">DETALHES</button></a>
+                        <div class="card__footer-buttons">
+                            <a href="/produto/{{produto.id_produto}}"><button class="button button--small">DETALHES</button></a>
+                        </div>
                     </div>
                 </div>
             </article>
