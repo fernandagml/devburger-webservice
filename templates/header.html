@@ -49,9 +49,11 @@
                     <li class="header__item">
                         <a href="/login" class="header__link">Login</a>
                     </li>
+                    {% if session.get('usuario_logado') %}
                     <li class="header__item">
                         <a href="/lougout" class="header__link">Logout</a>
                     </li>
+                    {% endif %}
                 </ul>
             </nav>
 
