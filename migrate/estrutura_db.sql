@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS tb_usuario (
 
 CREATE TABLE IF NOT EXISTS tb_carrinho (
 	id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
-    data_carrinho DATE,
+    data_carrinho DATETIME DEFAULT CURRENT_TIMESTAMP,
     finalizado BOOL,
     usuario VARCHAR(80),
     CONSTRAINT FK_usuario_carrinho
