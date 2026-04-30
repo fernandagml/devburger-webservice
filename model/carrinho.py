@@ -9,7 +9,7 @@ def recuperar_produto_carrinho(usuario:str) -> list:
     FROM tb_itens_carrinho
     INNER JOIN tb_produto ON tb_produto.id_produto = tb_itens_carrinho.id_produto
     INNER JOIN tb_carrinho ON tb_carrinho.id_carrinho = tb_itens_carrinho.id_carrinho
-    WHERE tb_carrinho.usuario = "Fer";""", (usuario, ))
+    WHERE tb_carrinho.usuario = %s;""", (usuario, ))
     produtos_carrinho = cursor.fetchall()
     conexao.close()
     return produtos_carrinho

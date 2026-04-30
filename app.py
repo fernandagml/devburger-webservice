@@ -1,7 +1,8 @@
-from flask import Flask, render_template as rt, request, redirect, session, flash
+from flask import Flask, render_template as rt, request, redirect, session, flash, jsonify
 from model.produtos import recuperar_produtos as rp, recuperar_produto_id as rpid, recuperar_produto_destaque as rpd
 # from model.usuario import inserir_usuario as iu, verificar_login as vl
 from model.usuario import Usuario
+from model.carrinho import recuperar_produto_carrinho as rpc
 
 app = Flask(__name__)
 app.secret_key = "webservice_lanches"
@@ -46,7 +47,7 @@ def logar():
     if user:
         session["usuario_logado"] = user
         return redirect("/")
-    else:
+    else: 
         flash("Usuário ou senha inválidos!", "erro")
         flash("Tente novamente ou cadastre-se.", "erro")
         return redirect("/login")
@@ -55,6 +56,15 @@ def logar():
 def lougout():
     session.clear()
     return redirect("/")
+
+@app.route("/api/get/carrinho", methods=["GET"])
+def api_get_carrinho():
+    if "usuario_logado" in session:
+        usuario = session["usuario_logado"]["usuario"]
+        carrinho = rpc(usuario)
+        return jsonify(carrinho), 200
+    else:
+        return jsonify({"message":"Usuário não logado"}), 401
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5050, debug=True)
