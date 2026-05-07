@@ -2,8 +2,7 @@ from flask import Flask, render_template as rt, request, redirect, session, flas
 from model.produtos import recuperar_produtos as rp, recuperar_produto_id as rpid, recuperar_produto_destaque as rpd
 # from model.usuario import inserir_usuario as iu, verificar_login as vl
 from model.usuario import Usuario
-from model.carrinho import recuperar_produto_carrinho as rpc
-
+from model.carrinho import recuperar_produto_carrinho as rpc, inserir_item_usuario as iiu
 app = Flask(__name__)
 app.secret_key = "webservice_lanches"
 
@@ -65,6 +64,21 @@ def api_get_carrinho():
         return jsonify(carrinho), 200
     else:
         return jsonify({"message":"Usuário não logado"}), 401
+    
+@app.route("/api/post/carrinho", methods=["POST"])
+def api_post_carrinho():
+    if "usuario_logado" in session:
+        usuario = session["usuario_logado"]["usuario"]
+
+        dados_json = request.get_json()
+        id_produto = dados_json.get("id_produto")
+        quantidade = dados_json.get("quantidade")
+
+        iiu(usuario, id_produto, quantidade)
+        return jsonify({"message":"Inserido com sucesso"}), 201
+    else:
+        return redirect("/login")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5050, debug=True)

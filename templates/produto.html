@@ -6,28 +6,17 @@
 <div class="product-page">
     {% if produto %}
     <div class="info-section">
-        <a href="/" class="back-link"><span>← Voltar para o menu</span></a>
-        
-        <div class="header-content">
-            <h1 class="title-produto">{{ produto.nome_produto }}</h1>
-            <p class="price">R$ {{ produto.preco }}</p>
-        </div>
 
-        <p class="description">{{ produto.descricao }}</p>
-
-        <div class="customization">
-            <h3>Personalize seu lanche</h3>
-            <div class="option-group">
-                <label class="option-item">
-                    <input type="checkbox"> Extra Bacon (+ R$ 4,00)
-                </label>
-                <label class="option-item">
-                    <input type="checkbox"> Cebola Caramelizada (+ R$ 2,00)
-                </label>
+        <div class="produto-info">
+            <a href="/" class="back-link"><span>← Voltar para o menu</span></a>
+            <div class="header-content">
+                <h1 class="title-produto">{{ produto.nome_produto }}</h1>
+                <p class="price">R$ {{ produto.preco }}</p>
             </div>
+            <p class="description">{{ produto.descricao }}</p>
         </div>
 
-        <button class="buy-button">ADICIONAR AO PEDIDO   <span class="material-symbols-outlined">add_shopping_cart</span></button>
+        <button class="buy-button" onclick="inserirItemCarrinho({{ produto.id_produto }})">ADICIONAR AO PEDIDO   <span class="material-symbols-outlined">add_shopping_cart</span></button>
 
     </div>
     <div class="image-section">

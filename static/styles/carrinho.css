@@ -80,7 +80,18 @@
     padding: 2px 10px; /* Aumentei um pouco o padding para respirar */
     overflow-y: auto;
     margin-top: 5px;
+    overflow: hidden;
+        /* Aplica o scroll sem barra */
+    overflow-y: scroll; /* Ativa rolagem vertical */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
 }
+
+  /* Chrome/Safari/Webkit */
+.carrinho-conteudo::-webkit-scrollbar {
+    display: none;
+}
+
 
 /* CARD DO ITEM AJUSTADO */
 .item-carrinho {

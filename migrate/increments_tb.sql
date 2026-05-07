@@ -7,12 +7,14 @@ VALUES
 ('Python Onion', 'Anéis de cebola, barbecue e queijo cheddar.', 33.00, 'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600', 1, 1),
 ('React Salad', 'Uma opção leve e reativa para o seu almoço.', 27.00, 'https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=600', 0, 1);
 
-INSERT INTO `db_devburguer`.`tb_carrinho` (`finalizado`, `usuario`) VALUES ('0', 'Fer');
-
-INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('2', '2', '3');
-INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('4', '2', '5');
+INSERT INTO tb_usuario VALUES('Fer', 123);
 
 INSERT INTO tb_carrinho(finalizado, usuario) VALUES(0, 'Fer');
+SELECT * FROM tb_carrinho;
+
+INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('2', '6', '3');
+INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('4', '6', '5');
+INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('1', '6', '1');
 
 SELECT tb_carrinho.id_carrinho, tb_itens_carrinho.quantidade, tb_carrinho.usuario, tb_carrinho.finalizado, tb_carrinho.data_carrinho, tb_produto.preco, tb_produto.nome_produto, tb_produto.imagem
 FROM tb_itens_carrinho
@@ -20,4 +22,6 @@ INNER JOIN tb_produto ON tb_produto.id_produto = tb_itens_carrinho.id_produto
 INNER JOIN tb_carrinho ON tb_carrinho.id_carrinho = tb_itens_carrinho.id_carrinho
 WHERE usuario = "Fer";
 
-SELECT * FROM tb_carrinho;
+SELECT * FROM tb_itens_carrinho;
+
+SELECT id_carrinho FROM tb_carrinho WHERE usuario = 'Fer' AND finalizado = 0 LIMIT 1;
