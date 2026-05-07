@@ -9,11 +9,15 @@ VALUES
 
 INSERT INTO `db_devburguer`.`tb_carrinho` (`finalizado`, `usuario`) VALUES ('0', 'Fer');
 
-INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('2', '1', '3');
-INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('4', '1', '5');
+INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('2', '2', '3');
+INSERT INTO `db_devburguer`.`tb_itens_carrinho` (`quantidade`, `id_carrinho`, `id_produto`) VALUES ('4', '2', '5');
 
-SELECT tb_carrinho.id_carrinho, tb_itens_carrinho.quantidade, tb_carrinho.usuario, tb_carrinho.finalizado, tb_carrinho.data_carrinho, tb_produto.preco
+INSERT INTO tb_carrinho(finalizado, usuario) VALUES(0, 'Fer');
+
+SELECT tb_carrinho.id_carrinho, tb_itens_carrinho.quantidade, tb_carrinho.usuario, tb_carrinho.finalizado, tb_carrinho.data_carrinho, tb_produto.preco, tb_produto.nome_produto, tb_produto.imagem
 FROM tb_itens_carrinho
 INNER JOIN tb_produto ON tb_produto.id_produto = tb_itens_carrinho.id_produto
 INNER JOIN tb_carrinho ON tb_carrinho.id_carrinho = tb_itens_carrinho.id_carrinho
 WHERE usuario = "Fer";
+
+SELECT * FROM tb_carrinho;
