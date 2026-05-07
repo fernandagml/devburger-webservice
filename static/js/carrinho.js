@@ -18,10 +18,10 @@ async function mostrarCarrinho() {
             <div class="carrinho-conteudo" id="carrinho">
                 <div class="item-carrinho">
                     <div class="container-img">
-                        <img src="${dado.imagem}" alt="${dado.nome}" class="item-imagem">
+                        <img src="${dado.imagem}" alt="${dado.nome_produto}" class="item-imagem">
                     </div>
                     <div class="item-info">
-                        <span class="item-nome">${dado.nome}</span>
+                        <span class="item-nome">${dado.nome_produto}</span>
                         <span class="item-preco">R$ ${dado.preco}</span>
                     </div>
                 </div>
