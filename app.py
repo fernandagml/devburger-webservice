@@ -2,7 +2,7 @@ from flask import Flask, render_template as rt, request, redirect, session, flas
 from model.produtos import recuperar_produtos as rp, recuperar_produto_id as rpid, recuperar_produto_destaque as rpd
 # from model.usuario import inserir_usuario as iu, verificar_login as vl
 from model.usuario import Usuario
-from model.carrinho import recuperar_produto_carrinho as rpc, inserir_item_usuario as iiu
+from model.carrinho import recuperar_produto_carrinho as rpc, inserir_item_usuario as iiu, delete_item_usuario
 app = Flask(__name__)
 app.secret_key = "webservice_lanches"
 
@@ -10,7 +10,10 @@ app.secret_key = "webservice_lanches"
 def index():
     produtos = rp()
     destaques = rpd()
-    return rt("index.html", produtos = produtos, destaques = destaques)
+    if "usuario_logado" in session:
+        usuario = session["usuario_logado"]["usuario"]
+    produtos_carrinho = rpc(usuario)
+    return rt("index.html", produtos = produtos, destaques = destaques, produtos_carrinho = produtos_carrinho)
 
 @app.route("/produto/<id>")
 def hamburguer(id):
@@ -78,6 +81,17 @@ def api_post_carrinho():
         return jsonify({"message":"Inserido com sucesso"}), 201
     else:
         return redirect("/login")
+    
+@app.route("/api/delete/produto", methods=["DELETE"])
+def api_delete_carrinho():
+    if session["usuario_logado"]:
+        dados_json = request.get_json()
+        produto = dados_json.get("id_produto")
+
+        delete_item_usuario(produto)
+        return jsonify({"message": "Produto deletado!"}), 200
+    else:
+        return jsonify({"error": "Produto não encontrado"}), 400
 
 
 if __name__ == '__main__':

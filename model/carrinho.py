@@ -26,3 +26,9 @@ def inserir_item_usuario(usuario, id_produto, quantidade=1):
     cursor.execute("""INSERT INTO tb_itens_carrinho (id_carrinho, id_produto, quantidade) VALUES (%s, %s, %s)""", (id_carrinho, id_produto, quantidade))
     conexao.commit()
     conexao.close()
+
+def delete_item_usuario(id_produto):
+    conexao, cursor = conectar()
+    cursor.execute("""DELETE FROM tb_itens_carrrinho WHERE id_produto = %s;""", (id_produto, ))
+    conexao.commit()
+    conexao.close()

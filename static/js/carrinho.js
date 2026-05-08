@@ -12,7 +12,7 @@ async function mostrarCarrinho() {
 
         for (let dado of dados) {
 
-            total = total + dado.preco
+            total = total + dado.preco * dado.quantidade
 
             let linha = `
             <div class="carrinho-conteudo" id="carrinho">
@@ -23,7 +23,8 @@ async function mostrarCarrinho() {
                     <div class="item-info">
                         <span class="item-nome">${dado.nome_produto}</span>
                         <span class="item-quantidade">${dado.quantidade} <em>un.</em></span>
-                        <span class="item-preco">R$ ${dado.preco}</span>
+                        <span class="item-preco">R$ ${dado.preco * dado.quantidade}</span>
+                        <span class="material-symbols-outlined" style="cursor: pointer "onclick="deletarItemCarrinho('{{ session.usuario_logado['usuario']}}', {{ produto.id_produto }})">cancel</span>
                     </div>
                 </div>
             </div>
@@ -41,7 +42,15 @@ mostrarCarrinho();
 async function inserirItemCarrinho(id_produto, quantidade=1) {
     const resposta = await fetch("/api/post/carrinho", {method:"POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify({"id_produto":id_produto, "quantidade":quantidade})})
     if (!resposta.ok) {
-        alert("Erro ao inserir item!")
+        alert("Erro ao inserir produto!")
+    }
+    mostrarCarrinho();
+};
+
+async function deletarItemCarrinho(id_produto) {
+    const resposta = await fetch("/api/delete/produto", {method:"DELETE", headers:{"Content-Type": "application/json"}, body: JSON.stringify({"id_produto":id_produto})})
+    if (!resposta.ok) {
+        alert("Erro ao deletar produto!")
     }
     mostrarCarrinho();
 };

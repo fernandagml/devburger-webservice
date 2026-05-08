@@ -43,11 +43,14 @@
                 <div class="container-img">
                     <img src="" alt="" class="item-imagem">
                 </div>
+                {% for produto in produtos_carrinho: %}
                 <div class="item-info">
                     <span class="item-nome"></span>
                     <span class="item-quantidade"></span>
                     <span class="item-preco"></span>
+                    <a href="/api/delete/produto"><button class="material-symbols-outlined" style="cursor: pointer "onclick="deletarItemCarrinho({{ produto.id_produto }})">cancel</button></a>
                 </div>
+                {% endfor %}
             </div>
         </div>
 

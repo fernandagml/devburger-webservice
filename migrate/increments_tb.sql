@@ -25,3 +25,7 @@ WHERE usuario = "Fer";
 SELECT * FROM tb_itens_carrinho;
 
 SELECT id_carrinho FROM tb_carrinho WHERE usuario = 'Fer' AND finalizado = 0 LIMIT 1;
+
+DELETE id_produto FROM tb_itens_carrrinho WHERE usuario = 'Fer';
+
+DELETE FROM tb_itens_carrinho WHERE id_produto = 2;
